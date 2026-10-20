@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudyMate — Your Personal Learning Space</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="authScreen" class="auth-wrap">
+  <div class="auth-card">
+    <div class="brand-mark">✦</div><p class="eyebrow">YOUR PERSONAL LEARNING SPACE</p>
+    <h1>Welcome to <span>StudyMate</span></h1>
+    <p class="muted">A calmer, smarter way to plan, practise and prepare.</p>
+    <div class="tabs auth-tabs"><button class="tab active" data-auth="signup">Create account</button><button class="tab" data-auth="login">Log in</button></div>
+    <form id="signupForm" class="auth-form">
+      <label>Student name<input id="signupName" required placeholder="Your full name"></label>
+      <div class="two-col"><label>Class<select id="signupClass" required><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option><option value="College">College</option></select></label><label>Board<select id="signupBoard"><option>CBSE</option><option>ICSE</option><option>Maharashtra State Board</option><option>Other</option></select></label></div>
+      <label>Email or username<input id="signupUser" required placeholder="e.g. student123"></label>
+      <label>Password<input id="signupPass" required minlength="4" type="password" placeholder="Create a password"></label>
+      <div class="notice"><strong>Parent progress access</strong><br>Enter parent/guardian numbers so you can invite them to create their own account and view your progress. StudyMate will not send a WhatsApp message automatically.</div>
+      <label>Mother / guardian WhatsApp number<input id="motherPhone" required inputmode="tel" placeholder="Country code + number, e.g. 919876543210"></label>
+      <label>Father / guardian WhatsApp number<input id="fatherPhone" required inputmode="tel" placeholder="Country code + number"></label>
+      <label class="check"><input type="checkbox" id="parentConsent" required> I have permission to use these numbers and understand I must tap the WhatsApp invite button to send a message.</label>
+      <button class="primary full" type="submit">Create my StudyMate account</button>
+    </form>
+    <form id="loginForm" class="auth-form hidden">
+      <label>Email or username<input id="loginUser" required></label><label>Password<input id="loginPass" required type="password"></label>
+      <button class="primary full" type="submit">Log in</button>
+      <p class="tiny muted">This standalone demo stores its profile in this browser only. It is not secure production authentication.</p>
+    </form>
+    <p id="authError" class="error" role="alert"></p>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark small">✦</span><span>StudyMate<small>LEARN WITH A PLAN</small></span></div>
+    <div class="profile-mini"><div class="avatar" id="avatarInitials">S</div><div><strong id="sideName">Student</strong><small id="sideClass">Class 10 · CBSE</small></div></div>
+    <nav id="nav">
+      <button class="nav-item active" data-page="dashboard"><span>⌂</span> Dashboard</button>
+      <button class="nav-item" data-page="scheduler"><span>▦</span> My Timetable</button>
+      <button class="nav-item" data-page="subjects"><span>▤</span> My Subjects</button>
+      <button class="nav-item" data-page="practice"><span>✎</span> Practice & Revision</button>
+      <button class="nav-item" data-page="tests"><span>◷</span> Weekly Tests</button>
+      <button class="nav-item" data-page="doubt"><span>✧</span> AI Doubt Solver</button>
+      <button class="nav-item" data-page="progress"><span>↗</span> My Progress</button>
+      <button class="nav-item" data-page="parents"><span>♡</span> Parent Access</button>
+      <button class="nav-item" data-page="settings"><span>⚙</span> Settings</button>
+    </nav>
+    <div class="sidebar-bottom"><div class="tip"><strong>Small steps count.</strong><p>Consistency beats cramming. Keep showing up.</p></div><button id="sidebarLogout" class="logout-btn">↪ Log out</button></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><p class="eyebrow" id="pageEyebrow">YOUR LEARNING SPACE</p><h2 id="pageTitle">Dashboard</h2></div><div class="top-actions"><span class="date-chip" id="todayDate"></span><button class="icon-btn" id="quickSettings" title="Settings">⚙</button></div></header>
+    <div id="content" class="content"></div>
+    <footer>StudyMate · Learn at your pace, improve every week.</footer>
+  </main>
+</div>
+<div id="toast" class="toast" aria-live="polite"></div>
+<script src="app.js"></script>
+</body></html>
